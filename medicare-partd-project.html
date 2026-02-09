@@ -8,12 +8,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="project-styles.css">
+<link rel="stylesheet" href="medicare-partd-style.css">
 </head>
 <body>
-    <!-- ========================================
-         NAVIGATION
-         ======================================== -->
     <nav class="portfolio-nav">
         <div class="nav-container">
             <a href="https://aidenjajo.com" class="nav-logo">Aiden Jajo</a>
@@ -23,9 +20,6 @@
             </div>
         </div>
     </nav>
-    <!-- ========================================
-         HERO SECTION
-         ======================================== -->
     <section class="hero">
         <div class="hero-content">
             <h1 class="hero-title">The $3.84 Billion Question</h1>
@@ -48,9 +42,6 @@
             </div>
         </div>
     </section>
-    <!-- ========================================
-         SECTION 1: INTRODUCTION
-         ======================================== -->
     <section id="introduction">
         <div class="container">
             <h2>Introduction</h2>
@@ -61,9 +52,6 @@
             <p>Using two CMS datasets containing prescriber-level and drug-level data, my analysis identified 454 medications with both brand and generic versions available in 2023. The findings reveal not just the scale of the savings opportunity, but where it's concentrated—and the answers are surprising.</p>
         </div>
     </section>
-    <!-- ========================================
-         SECTION 2: THE PROBLEM
-         ======================================== -->
     <section id="the-problem">
         <div class="container">
             <h2>The Problem: When Cheaper Equals Better</h2>
@@ -77,9 +65,6 @@
             <p>When Medicare pays for a brand-name drug instead of its generic equivalent, the program spends more money for the same health outcome. Unlike individual patients who might have copay structures that mask the true cost difference, Medicare bears the full price differential. Over time, these choices compound: small decisions by individual prescribers aggregate into billions of dollars in excess spending across the program.</p>
         </div>
     </section>
-    <!-- ========================================
-         SECTION 3: THE 2023 CONTEXT
-         ======================================== -->
     <section id="context-2023">
         <div class="container">
             <h2>The 2023 Context: A Snapshot Before Reform</h2>
@@ -99,9 +84,6 @@
             <p>This project should be understood as historical analysis: what Medicare Part D spending and savings opportunities looked like <em>before</em> these major policy changes took effect. The brand-versus-generic utilization patterns identified here may have shifted as the IRA provisions were implemented. However, understanding the pre-reform baseline is critical for evaluating whether policy changes actually moved the needle on generic adoption—and whether the core problem of prescribers choosing expensive brands over identical generics has been addressed or merely masked by cost caps and price negotiations.</p>
         </div>
     </section>
-    <!-- ========================================
-         SECTION 4: THE ANALYSIS
-         ======================================== -->
     <section id="the-analysis">
         <div class="container">
             <h2>The Analysis: My Approach</h2>
@@ -117,9 +99,6 @@
             <p>All data processing was conducted using Python, with analysis organized into seven separate scripts for transparency and reproducibility. The processed data produced seven Tableau-ready CSV files covering top savings opportunities, conversion scenarios, state-level analysis, and drug-specific breakdowns. Tableau was used for all visualization and dashboard creation.</p>
         </div>
     </section>
-    <!-- ========================================
-         SECTION 5: KEY FINDING #1
-         ======================================== -->
     <section id="finding-1">
         <div class="container">
             <h2>Key Finding #1: The Overall Opportunity</h2>
@@ -153,9 +132,6 @@
             <p>These aren't theoretical savings from unproven interventions or experimental drugs. This is money Medicare could have saved in 2023 by using medications the FDA has already certified as therapeutically equivalent to the brand-name versions.<a href="#source-3" class="citation" title="FDA Orange Book Guidance">3</a><a href="#source-5" class="citation" title="Congress.gov CRS Report">5</a> The infrastructure exists, the medications are approved and available, and the clinical outcomes are identical. The question isn't whether generic substitution works—it's why it isn't happening more often.</p>
         </div>
     </section>
-    <!-- ========================================
-         SECTION 6: KEY FINDING #2
-         ======================================== -->
     <section id="finding-2">
         <div class="container">
             <h2>Key Finding #2: The Top 20 Drugs</h2>
@@ -185,9 +161,6 @@
             <p>The top 20 list extended beyond insulin to include other high-cost, high-volume medications where generics existed but weren't being prescribed despite FDA therapeutic equivalence certification.<a href="#source-3" class="citation" title="FDA Orange Book Guidance">3</a><a href="#source-5" class="citation" title="Congress.gov CRS Report">5</a></p>
         </div>
     </section>
-    <!-- ========================================
-         SECTION 7: DEEP DIVE - INSULIN
-         ======================================== -->
     <section id="insulin-deep-dive">
         <div class="container">
             <h2>Deep Dive: The Insulin Story</h2>
@@ -213,9 +186,6 @@
             <p>The insulin pattern illustrates a crucial insight: patient cost caps and manufacturer pricing agreements, while beneficial for beneficiary affordability, don't necessarily change prescribing behavior. The 93-99% brand utilization rates in 2023 suggest that even as policy interventions focused on lowering patient costs, the underlying practice of prescribing expensive brands over identical generics persisted. This represents a different kind of savings opportunity—one focused on system-level efficiency rather than patient out-of-pocket costs.</p>
         </div>
     </section>
-    <!-- ========================================
-         SECTION 8: KEY FINDING #3
-         ======================================== -->
     <section id="finding-3">
         <div class="container">
             <h2>Key Finding #3: Geography Doesn't Explain It</h2>
@@ -241,9 +211,6 @@
             <p>This finding suggests that interventions to increase generic adoption would likely need to be drug-specific rather than region-specific. Rather than targeting states or regions with low generic adoption rates, efforts should focus on changing prescriber behavior for particular high-cost medications where generic alternatives exist but aren't being prescribed. The insulin case exemplifies this: the problem wasn't isolated to certain geographic areas—it was systemic across the entire Medicare Part D program.</p>
         </div>
     </section>
-    <!-- ========================================
-         SECTION 9: THE WHY
-         ======================================== -->
     <section id="the-why">
         <div class="container">
             <h2>The Why: Barriers to Generic Adoption</h2>
@@ -259,9 +226,6 @@
             <p>These barriers don't operate in isolation—they interact and compound. A prescriber concerned about patient preferences might write "dispense as written" to avoid pharmacy substitution. State laws that require patient consent add friction to generic substitution. PBM formularies that favor certain brands create economic incentives that run counter to generic adoption. The result is a system where the path of least resistance often leads to brand-name prescriptions, even when therapeutically equivalent generics exist.</p>
         </div>
     </section>
-    <!-- ========================================
-         SECTION 10: WHAT THIS MEANS
-         ======================================== -->
     <section id="implications">
         <div class="container">
             <h2>What This Means: Insights & Implications</h2>
@@ -289,9 +253,6 @@
             </div>
         </div>
     </section>
-    <!-- ========================================
-         SECTION 11: LIMITATIONS
-         ======================================== -->
     <section id="limitations">
         <div class="container">
             <h2>Limitations & Transparency</h2>
@@ -314,9 +275,6 @@
             </div>
         </div>
     </section>
-    <!-- ========================================
-         SECTION 12: THE BOTTOM LINE
-         ======================================== -->
     <section id="conclusion">
         <div class="container">
             <h2>The Bottom Line</h2>
@@ -328,9 +286,6 @@
             <p>As Medicare continues to evolve, the core insight remains relevant: when therapeutically equivalent generic drugs exist,<a href="#source-3" class="citation" title="FDA Orange Book Guidance">3</a><a href="#source-5" class="citation" title="Congress.gov CRS Report">5</a> ensuring their adoption represents one of the most straightforward pathways to controlling prescription drug spending while maintaining patient access to effective medications. The question this analysis raises isn't whether generic substitution works—the FDA has already certified these drugs as therapeutically equivalent.<a href="#source-17" class="citation" title="FDA Generic Drugs">17</a> The question is what barriers prevent it from happening more systematically, and whether policy reforms address prescribing behavior or simply shift who bears the cost.</p>
         </div>
     </section>
-    <!-- ========================================
-         SECTION 13: METHODOLOGY (COLLAPSIBLE)
-         ======================================== -->
     <section id="methodology">
         <div class="container">
             <h2>Methodology & Data Notes</h2>
@@ -404,9 +359,6 @@
             </div>
         </div>
     </section>
-    <!-- ========================================
-         SECTION 14: SOURCES
-         ======================================== -->
     <section id="sources">
         <div class="container">
             <h2>Sources</h2>
@@ -446,9 +398,6 @@
             <p>Available at: <a href="https://data.cms.gov/" target="_blank">https://data.cms.gov/</a></p>
         </div>
     </section>
-    <!-- ========================================
-         FOOTER
-         ======================================== -->
     <footer>
         <div class="container">
             <p><strong>Medicare Part D Generic Drug Analysis</strong></p>
@@ -457,9 +406,6 @@
             <a href="https://aidenjajo.com">← Return to main portfolio</a></p>
         </div>
     </footer>
-    <!-- ========================================
-         JAVASCRIPT
-         ======================================== -->
     <script>
         // Collapsible methodology section
         function toggleCollapsible() {
