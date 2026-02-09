@@ -407,20 +407,17 @@
         </div>
     </footer>
     <script>
-        // Collapsible methodology section
         function toggleCollapsible() {
             const toggle = document.querySelector('.collapsible-toggle');
             const content = document.getElementById('methodologyContent');
             toggle.classList.toggle('active');
             content.classList.toggle('active');
         }
-        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
-                // Only smooth scroll for section links, not citation links
                 if (href.startsWith('#source-')) {
-                    return; // Let citation links work normally
+                    return; 
                 }
                 e.preventDefault();
                 const target = document.querySelector(href);
