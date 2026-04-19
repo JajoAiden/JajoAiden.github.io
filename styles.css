@@ -128,7 +128,7 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
-    padding: 7rem 2rem 4rem;
+    padding: 7rem 2rem 6rem;
 }
 
 .hero-content {
@@ -233,8 +233,8 @@ body {
 }
 
 .scroll-indicator {
-    position: absolute;
-    bottom: 1.5rem;
+    position: relative;
+    margin-top: 3rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -656,7 +656,7 @@ body {
     }
 
     .hero {
-        padding: 6rem 1.5rem 3rem;
+        padding: 9rem 1.5rem 3rem;
         min-height: unset;
     }
 
@@ -689,7 +689,7 @@ body {
     }
 
     .scroll-indicator {
-        bottom: 1rem;
+        margin-top: 2rem;
     }
 
     .section {
@@ -742,7 +742,7 @@ body {
     }
 
     .hero {
-        padding: 5rem 1rem 2rem;
+        padding: 11rem 1rem 3rem;
     }
 
     .hero-img {
