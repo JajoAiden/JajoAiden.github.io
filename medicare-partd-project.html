@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Data analytics portfolio project analyzing $3.84 billion in potential Medicare Part D savings through increased generic drug adoption. Analysis of 2023 prescriber data by Aiden, showcasing Python and Tableau skills.">
+    <meta property="og:title" content="The $3.84 Billion Question: Medicare Part D Generic Drug Analysis">
+    <meta property="og:description" content="Data analytics project analyzing $3.84 billion in potential Medicare Part D savings through increased generic drug adoption. Built with Python and Tableau.">
+    <meta property="og:image" content="https://public.tableau.com/static/images/Sa/Savings_17706123109360/SavingsScenarios/1.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="628">
+    <meta property="og:url" content="https://aidenjajo.com/medicare-partd-project.html">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The $3.84 Billion Question: Medicare Part D Generic Drug Analysis">
+    <meta name="twitter:description" content="Data analytics project analyzing $3.84 billion in potential Medicare Part D savings through increased generic drug adoption.">
+    <meta name="twitter:image" content="https://public.tableau.com/static/images/Sa/Savings_17706123109360/SavingsScenarios/1.png">
     <title>The $3.84 Billion Question: Medicare Part D Generic Drug Analysis</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -143,7 +154,7 @@
         <div class="container">
             <h2>The Analysis: My Approach</h2>
             <h3>Data Sources</h3>
-            <p>This project utilized two publicly available Centers for Medicare & Medicaid Services (CMS) datasets from 2023: the Medicare Part D Prescriber by Drug and Geography dataset (containing prescriber level information on drug spending, claims, and beneficiary counts) and the Medicare Part D Spending by Drug dataset (containing drug level aggregate spending data). Together, these datasets provide comprehensive coverage of Medicare Part D prescription activity across all 50 states plus U.S. territories.</p>
+            <p>This project utilized two publicly available Centers for Medicare &amp; Medicaid Services (CMS) datasets from 2023: the Medicare Part D Prescriber by Drug and Geography dataset (containing prescriber level information on drug spending, claims, and beneficiary counts) and the Medicare Part D Spending by Drug dataset (containing drug level aggregate spending data). Together, these datasets provide comprehensive coverage of Medicare Part D prescription activity across all 50 states plus U.S. territories.</p>
             <h3>Four-Phase Methodology</h3>
             <p>My analysis followed a systematic approach across four phases:</p>
             <p><strong>Phase 1: Drug Identification</strong> &mdash; I identified all drugs with both brand and generic versions available in 2023 and classified drug types based on naming patterns (insulin products, drugs ending in -prazole, -statin, etc.). All generic equivalents were verified against FDA Orange Book therapeutic equivalence standards.<a href="#source-3" class="citation" title="FDA Orange Book Guidance">3</a><a href="#source-5" class="citation" title="Congress.gov CRS Report">5</a></p>
@@ -270,9 +281,9 @@
         <div class="container">
             <h2>The Why: Barriers to Generic Adoption</h2>
             <p>The data reveals <em>what</em> happened in 2023 (high brand utilization despite generic availability) but not <em>why</em>. Understanding the barriers to generic adoption requires examining the complex ecosystem of prescribers, patients, pharmacists, regulators, and payers. Research has identified several documented barriers that help explain the patterns observed in this analysis.</p>
-            <h3>Perceptions & Psychology</h3>
+            <h3>Perceptions &amp; Psychology</h3>
             <p>Research has shown that barriers to generic drug use include negative perceptions about generic medicines, concerns about efficacy and safety, and preference for familiar brand names.<a href="#source-15" class="citation" title="ScienceDirect, December 2013">15</a> Studies of specific patient populations have documented concerns that generic substitution might lead to breakthrough symptoms or side effects,<a href="#source-16" class="citation" title="U.S. Pharmacist, June 2020">16</a> even though the FDA maintains that therapeutically equivalent generics are just as safe and effective as brand name drugs.<a href="#source-17" class="citation" title="FDA Generic Drugs">17</a> These perceptions affect both prescribers and patients: a prescriber may default to the brand name product they learned in medical school, while patients may request brand names they've seen advertised or used previously.</p>
-            <h3>State Regulations & "Dispense as Written"</h3>
+            <h3>State Regulations &amp; "Dispense as Written"</h3>
             <p>Barriers can occur at multiple points, including state laws on generic substitution, factors related to generic availability, and consumer and prescriber behavior.<a href="#source-18" class="citation" title="ASPE Expanding Generic Use">18</a> Some states require pharmacists to substitute generics unless the prescriber specifies otherwise, while others take a more permissive approach, allowing but not requiring substitution.<a href="#source-19" class="citation" title="ASPE Expanding Generic Use">19</a> Additionally, some states require patient consent before generic substitution.</p>
             <p>Prescribers can specify "dispense as written" (DAW) or "brand necessary," which overrides generic substitution laws. Research on specialty drugs has found that DAW specifications can be significantly higher than the general prescription population. One study of generic imatinib found 24% of prescriptions were marked DAW, compared to just 3.5% for medications with available generics overall.<a href="#source-20" class="citation" title="Health Affairs, May 2018">20</a></p>
             <h3>Pharmacy Benefit Manager Incentives</h3>
@@ -283,7 +294,7 @@
     </section>
     <section id="implications">
         <div class="container">
-            <h2>What This Means: Insights & Implications</h2>
+            <h2>What This Means: Insights &amp; Implications</h2>
             <p>While the 2023 landscape has now been transformed by IRA provisions, this historical analysis offers insights that remain relevant as Medicare Part D continues to evolve. The patterns identified here (drug specific savings concentration, persistent high brand utilization despite generic availability, and minimal geographic variation) suggest several considerations for different stakeholders.</p>
             <div class="recommendation-grid">
                 <div class="recommendation-card">
@@ -310,7 +321,7 @@
     </section>
     <section id="limitations">
         <div class="container">
-            <h2>Limitations & Transparency</h2>
+            <h2>Limitations &amp; Transparency</h2>
             <p>Like all analyses, this project has important limitations that should be understood when interpreting the findings:</p>
             <div class="callout warning">
                 <h4>1. Dated Analysis</h4>
@@ -343,15 +354,15 @@
     </section>
     <section id="methodology">
         <div class="container">
-            <h2>Methodology & Data Notes</h2>
+            <h2>Methodology &amp; Data Notes</h2>
             <div class="collapsible-section">
                 <button class="collapsible-toggle" onclick="toggleCollapsible()">
                     Click to expand detailed methodology
                 </button>
                 <div class="collapsible-content" id="methodologyContent">
                     <div class="collapsible-inner">
-                        <h3>Data Sources & Access</h3>
-                        <p>This analysis used two publicly available Centers for Medicare & Medicaid Services (CMS) datasets from 2023:</p>
+                        <h3>Data Sources &amp; Access</h3>
+                        <p>This analysis used two publicly available Centers for Medicare &amp; Medicaid Services (CMS) datasets from 2023:</p>
                         <ul>
                             <li><strong>Medicare Part D Prescriber by Drug and Geography</strong> - Contains prescriber level information on drug spending, total claims, beneficiary counts, and geographic distribution across all 50 states plus U.S. territories.</li>
                             <li><strong>Medicare Part D Spending by Drug</strong> - Contains drug level aggregate spending data, including total program costs and beneficiary out of pocket costs.</li>
@@ -420,21 +431,21 @@
             <p>All factual claims in this analysis are supported by the following sources:</p>
             <ol class="sources-list">
                 <li id="source-1" data-number="1.">Kaiser Family Foundation (KFF). "A Current Snapshot of the Medicare Part D Prescription Drug Benefit." October 2025. <a href="https://www.kff.org/medicare/a-current-snapshot-of-the-medicare-part-d-prescription-drug-benefit/" target="_blank">https://www.kff.org/medicare/a-current-snapshot-of-the-medicare-part-d-prescription-drug-benefit/</a></li>
-                <li id="source-2" data-number="2.">Centers for Medicare & Medicaid Services (CMS). "Prescription Drug Coverage - General Information." <a href="https://www.cms.gov/medicare/coverage/prescription-drug-coverage" target="_blank">https://www.cms.gov/medicare/coverage/prescription-drug-coverage</a></li>
+                <li id="source-2" data-number="2.">Centers for Medicare &amp; Medicaid Services (CMS). "Prescription Drug Coverage - General Information." <a href="https://www.cms.gov/medicare/coverage/prescription-drug-coverage" target="_blank">https://www.cms.gov/medicare/coverage/prescription-drug-coverage</a></li>
                 <li id="source-3" data-number="3.">U.S. Food and Drug Administration (FDA). "Orange Book Questions and Answers Guidance for Industry." <a href="https://www.fda.gov/media/160167/download" target="_blank">https://www.fda.gov/media/160167/download</a></li>
                 <li id="source-4" data-number="4.">Rx-wiki. "Orange Book." <a href="http://rx-wiki.org/index.php?title=Orange_Book" target="_blank">http://rx-wiki.org/index.php?title=Orange_Book</a></li>
                 <li id="source-5" data-number="5.">Congress.gov. "Patent Listing in FDA's Orange Book." Congressional Research Service (CRS) Report. <a href="https://www.congress.gov/crs-product/IF12644" target="_blank">https://www.congress.gov/crs-product/IF12644</a></li>
-                <li id="source-6" data-number="6.">U.S. Pharmacist. "Discussing Brand Versus Generic Medications." June 2020. <a href="https://www.uspharmacist.com/article/discussing-brand versus generic-medications" target="_blank">https://www.uspharmacist.com/article/discussing-brand versus generic-medications</a></li>
-                <li id="source-7" data-number="7.">U.S. Pharmacist. "Discussing Brand Versus Generic Medications." June 2020. <a href="https://www.uspharmacist.com/article/discussing-brand versus generic-medications" target="_blank">https://www.uspharmacist.com/article/discussing-brand versus generic-medications</a></li>
+                <li id="source-6" data-number="6.">U.S. Pharmacist. "Discussing Brand Versus Generic Medications." June 2020. <a href="https://www.uspharmacist.com/article/discussing-brand-versus-generic-medications" target="_blank">https://www.uspharmacist.com/article/discussing-brand-versus-generic-medications</a></li>
+                <li id="source-7" data-number="7.">U.S. Pharmacist. "Discussing Brand Versus Generic Medications." June 2020. <a href="https://www.uspharmacist.com/article/discussing-brand-versus-generic-medications" target="_blank">https://www.uspharmacist.com/article/discussing-brand-versus-generic-medications</a></li>
                 <li id="source-8" data-number="8.">Office of the Assistant Secretary for Planning and Evaluation (ASPE), U.S. Department of Health and Human Services. "Insulin Affordability and the Inflation Reduction Act." October 2023. <a href="https://www.ncbi.nlm.nih.gov/books/NBK616488/" target="_blank">https://www.ncbi.nlm.nih.gov/books/NBK616488/</a></li>
                 <li id="source-9" data-number="9.">Office of the Assistant Secretary for Planning and Evaluation (ASPE), U.S. Department of Health and Human Services. "Insulin Affordability and the Inflation Reduction Act." October 2023. <a href="https://www.ncbi.nlm.nih.gov/books/NBK616488/" target="_blank">https://www.ncbi.nlm.nih.gov/books/NBK616488/</a></li>
-                <li id="source-10" data-number="10.">Centers for Medicare & Medicaid Services (CMS). "Contract Year 2027 Medicare Advantage and Part D Proposed Rule." Fact Sheet. <a href="https://www.cms.gov/newsroom/fact-sheets/contract-year-2027-medicare-advantage-part-d-proposed-rule" target="_blank">https://www.cms.gov/newsroom/fact-sheets/contract-year-2027-medicare-advantage-part-d-proposed-rule</a></li>
-                <li id="source-11" data-number="11.">Centers for Medicare & Medicaid Services (CMS). "CMS Releases Proposed 2026 Payment Policy Updates." Press Release. <a href="https://www.cms.gov/newsroom/press-releases/cms-releases-proposed-2026-payment-policy-updates-medicare-advantage-and-part-d-programs" target="_blank">https://www.cms.gov/newsroom/press-releases/cms-releases-proposed-2026-payment-policy-updates-medicare-advantage-and-part-d-programs</a></li>
+                <li id="source-10" data-number="10.">Centers for Medicare &amp; Medicaid Services (CMS). "Contract Year 2027 Medicare Advantage and Part D Proposed Rule." Fact Sheet. <a href="https://www.cms.gov/newsroom/fact-sheets/contract-year-2027-medicare-advantage-part-d-proposed-rule" target="_blank">https://www.cms.gov/newsroom/fact-sheets/contract-year-2027-medicare-advantage-part-d-proposed-rule</a></li>
+                <li id="source-11" data-number="11.">Centers for Medicare &amp; Medicaid Services (CMS). "CMS Releases Proposed 2026 Payment Policy Updates." Press Release. <a href="https://www.cms.gov/newsroom/press-releases/cms-releases-proposed-2026-payment-policy-updates-medicare-advantage-and-part-d-programs" target="_blank">https://www.cms.gov/newsroom/press-releases/cms-releases-proposed-2026-payment-policy-updates-medicare-advantage-and-part-d-programs</a></li>
                 <li id="source-12" data-number="12.">Kaiser Family Foundation (KFF). "A Current Snapshot of the Medicare Part D Prescription Drug Benefit." October 2025. <a href="https://www.kff.org/medicare/a-current-snapshot-of-the-medicare-part-d-prescription-drug-benefit/" target="_blank">https://www.kff.org/medicare/a-current-snapshot-of-the-medicare-part-d-prescription-drug-benefit/</a></li>
                 <li id="source-13" data-number="13.">AARP. "What to Know About Medicare's Insulin Costs." June 2025. <a href="https://www.aarp.org/advocacy/medicare-insulin-questions-answers-2023/" target="_blank">https://www.aarp.org/advocacy/medicare-insulin-questions-answers-2023/</a></li>
                 <li id="source-14" data-number="14.">PBS NewsHour. "New law caps insulin prices for some with diabetes." January 2024. <a href="https://www.pbs.org/newshour/show/new-law-caps-insulin-prices-for-some-with-diabetes-but-cost-remains-high-for-millions" target="_blank">https://www.pbs.org/newshour/show/new-law-caps-insulin-prices-for-some-with-diabetes-but-cost-remains-high-for-millions</a></li>
                 <li id="source-15" data-number="15.">ScienceDirect. "The experiences of implementing generic medicine policy in eight countries." December 2013. <a href="https://www.sciencedirect.com/science/article/pii/S131901641300128X" target="_blank">https://www.sciencedirect.com/science/article/pii/S131901641300128X</a></li>
-                <li id="source-16" data-number="16.">U.S. Pharmacist. "Discussing Brand Versus Generic Medications." June 2020. <a href="https://www.uspharmacist.com/article/discussing-brand versus generic-medications" target="_blank">https://www.uspharmacist.com/article/discussing-brand versus generic-medications</a></li>
+                <li id="source-16" data-number="16.">U.S. Pharmacist. "Discussing Brand Versus Generic Medications." June 2020. <a href="https://www.uspharmacist.com/article/discussing-brand-versus-generic-medications" target="_blank">https://www.uspharmacist.com/article/discussing-brand-versus-generic-medications</a></li>
                 <li id="source-17" data-number="17.">U.S. Food and Drug Administration (FDA). "Generic Drugs." <a href="https://www.fda.gov/drugs/buying-using-medicine-safely/generic-drugs" target="_blank">https://www.fda.gov/drugs/buying-using-medicine-safely/generic-drugs</a></li>
                 <li id="source-18" data-number="18.">Office of the Assistant Secretary for Planning and Evaluation (ASPE), U.S. Department of Health and Human Services. "Expanding the Use of Generic Drugs." <a href="https://aspe.hhs.gov/reports/expanding-use-generic-drugs-0" target="_blank">https://aspe.hhs.gov/reports/expanding-use-generic-drugs-0</a></li>
                 <li id="source-19" data-number="19.">Office of the Assistant Secretary for Planning and Evaluation (ASPE), U.S. Department of Health and Human Services. "Expanding the Use of Generic Drugs." <a href="https://aspe.hhs.gov/reports/expanding-use-generic-drugs-0" target="_blank">https://aspe.hhs.gov/reports/expanding-use-generic-drugs-0</a></li>
@@ -445,7 +456,7 @@
                 <li id="source-24" data-number="24.">PubMed Central (PMC), National Library of Medicine. "The effects of state level pharmacist regulations on generic substitution." <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6172151/" target="_blank">https://pmc.ncbi.nlm.nih.gov/articles/PMC6172151/</a></li>
             </ol>
             <h3 style="margin-top: 3rem;">Data Sources</h3>
-            <p><strong>Centers for Medicare & Medicaid Services (CMS) Public Datasets (2023):</strong></p>
+            <p><strong>Centers for Medicare &amp; Medicaid Services (CMS) Public Datasets (2023):</strong></p>
             <ul>
                 <li>Medicare Part D Prescriber by Drug and Geography</li>
                 <li>Medicare Part D Spending by Drug</li>
@@ -472,7 +483,7 @@
             anchor.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
                 if (href.startsWith('#source-')) {
-                    return; 
+                    return;
                 }
                 e.preventDefault();
                 const target = document.querySelector(href);
