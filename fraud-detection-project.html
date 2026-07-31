@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Data analytics portfolio project applying SMOTE to a severely imbalanced credit card fraud dataset (0.26% fraud rate), improving fraud recall from 76% to 95% with a Random Forest classifier. Built with Python and imbalanced-learn.">
+    <meta property="og:title" content="Catching 95% of Fraud: Handling Severe Class Imbalance with SMOTE">
+    <meta property="og:description" content="Machine learning project improving credit card fraud detection recall from 76% to 95% using SMOTE to address a 384:1 class imbalance.">
+    <meta property="og:image" content="https://aidenjajo.com/fraud-confusion-matrix.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="628">
+    <meta property="og:url" content="https://aidenjajo.com/fraud-detection-project.html">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Catching 95% of Fraud: Handling Severe Class Imbalance with SMOTE">
+    <meta name="twitter:description" content="Machine learning project improving credit card fraud detection recall from 76% to 95% using SMOTE to address a 384:1 class imbalance.">
+    <meta name="twitter:image" content="https://aidenjajo.com/fraud-confusion-matrix.png">
+    <title>Catching 95% of Fraud: Handling Severe Class Imbalance with SMOTE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="medicare-partd-style.css">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MTBVY4BP5W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-MTBVY4BP5W');
+    </script>
+</head>
+<body>
+    <nav class="portfolio-nav">
+        <div class="nav-container">
+            <a href="https://aidenjajo.com" class="nav-logo">Aiden B. Jajo</a>
+            <div class="nav-links">
+                <a href="https://aidenjajo.com#projects" class="nav-link">← Back to Portfolio</a>
+                <a href="#methodology" class="nav-link">Methodology</a>
+            </div>
+        </div>
+    </nav>
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Catching 95% of Fraud</h1>
+            <p class="hero-subtitle">Handling a 384:1 Class Imbalance in Credit Card Fraud Detection<br>A Data Analytics Portfolio Project | July 2026</p>
+            <div class="hero-stats">
+                <div class="big-stat">76% → 95%</div>
+                <p class="stat-description">Improvement in fraud detection recall after applying SMOTE to a severely imbalanced dataset</p>
+            </div>
+            <div class="tableau-viz" id="metric-comparison" style="margin-top: 3rem;">
+                <img src="fraud-metric-comparison.png" alt="Precision, recall, and F1-score comparison between baseline and SMOTE-enhanced fraud detection models" style="width: 100%; display: block;">
+            </div>
+        </div>
+    </section>
+    <section id="executive-summary" class="exec-summary">
+        <div class="exec-summary-inner">
+            <div class="exec-header">
+                <p class="exec-label">Project Overview</p>
+                <h2 class="exec-title">What This Analysis Found</h2>
+                <p class="exec-subtitle">A 60 second overview before the full report.</p>
+            </div>
+            <div class="exec-findings-grid">
+                <div class="exec-finding">
+                    <p class="exec-stat">0.26%</p>
+                    <p class="exec-stat-label">of transactions were fraudulent</p>
+                    <p class="exec-stat-desc">Just 104 fraud cases out of 39,999 credit card transactions, a class imbalance ratio of roughly 384 legitimate transactions for every 1 fraudulent one.</p>
+                </div>
+                <div class="exec-finding">
+                    <p class="exec-stat">+19pts</p>
+                    <p class="exec-stat-label">recall improvement from SMOTE</p>
+                    <p class="exec-stat-desc">The baseline Random Forest caught 76% of fraud cases in testing. After SMOTE-balancing the training data, the same model architecture caught 95%.</p>
+                </div>
+                <div class="exec-finding">
+                    <p class="exec-stat">1 vs. 5</p>
+                    <p class="exec-stat-label">missed fraud cases (SMOTE vs. baseline)</p>
+                    <p class="exec-stat-desc">Out of 21 fraud cases in the test set, the baseline model missed 5. The SMOTE-enhanced model missed only 1, with virtually no added false alarms.</p>
+                </div>
+            </div>
+            <div class="exec-details-grid">
+                <div class="exec-detail">
+                    <p class="exec-detail-label">Approach</p>
+                    <p class="exec-detail-text">Trained a baseline Random Forest on severely imbalanced transaction data, then applied SMOTE (Synthetic Minority Over-sampling Technique) to synthetically balance the training set before retraining an identical model architecture, isolating the effect of class balancing alone.</p>
+                </div>
+                <div class="exec-detail">
+                    <p class="exec-detail-label">Tools & Context</p>
+                    <div class="exec-tags">
+                        <span class="exec-tag">Python</span>
+                        <span class="exec-tag">pandas</span>
+                        <span class="exec-tag">scikit-learn</span>
+                        <span class="exec-tag">imbalanced-learn</span>
+                        <span class="exec-tag">SMOTE</span>
+                    </div>
+                    <p class="exec-detail-context">Built as part of a graduate-level data science coursework portfolio, with an automated multi-page PDF reporting pipeline.</p>
+                </div>
+            </div>
+            <div class="exec-cta">
+                <a href="#introduction" class="exec-cta-link">Read the full analysis ↓</a>
+            </div>
+        </div>
+    </section>
+    <section id="introduction">
+        <div class="container">
+            <h2>Introduction</h2>
+            <p>Fraud detection is one of the clearest examples of a problem where accuracy, the most intuitive way to measure a model, is actively misleading. A model that simply predicted "not fraud" for every single transaction in this dataset would be 99.74% accurate, and completely useless. This project set out to demonstrate why: and more importantly, how to fix it.</p>
+            <p>Using a dataset of 39,999 credit card transactions with only 104 confirmed fraud cases (a 0.26% fraud rate), this analysis trains a baseline Random Forest classifier, then applies SMOTE (Synthetic Minority Over-sampling Technique) to address the class imbalance directly, and measures exactly how much that intervention improves the model's ability to catch fraud.</p>
+            <p>The goal wasn't just to build an accurate-looking model, but to build one that is actually useful for its real purpose: catching the fraudulent transactions that matter, without simply predicting the majority class by default.</p>
+        </div>
+    </section>
+    <section id="the-problem">
+        <div class="container">
+            <h2>The Problem: When Accuracy Lies</h2>
+            <h3>A 384:1 Imbalance</h3>
+            <p>Of the 39,999 transactions in this dataset, only 104 (0.26%) were fraudulent, while 39,895 (99.74%) were legitimate. This is an extreme class imbalance: for every fraudulent transaction, there are roughly 384 legitimate ones. When a classification algorithm is trained on data like this without any adjustment, it naturally learns that predicting "not fraud" is almost always the safe, high-accuracy bet.</p>
+            <h3>Why Standard Training Falls Short</h3>
+            <p>Random Forest and most other classifiers optimize for overall predictive accuracy by default. On a dataset this imbalanced, a model can achieve near-perfect accuracy while still missing a substantial share of the minority class (the fraud cases) entirely, because those cases contribute so little to the overall error signal during training. This is precisely the failure mode this project set out to measure and correct.</p>
+        </div>
+    </section>
+    <section id="baseline">
+        <div class="container">
+            <h2>Key Finding #1: The Baseline Model</h2>
+            <h3>Strong Accuracy, Weaker Recall</h3>
+            <p>A baseline Random Forest classifier (100 trees, default class weighting) was trained on the imbalanced training data (31,916 legitimate transactions vs. just 83 fraud cases) and evaluated on a held-out, stratified test set of 8,000 transactions.</p>
+            <p>The baseline model achieved 100% overall accuracy and 94% precision on fraud predictions, meaning that when it flagged a transaction as fraud, it was usually right. But its <strong>recall on fraud cases was only 76%</strong>, correctly catching 16 of the 21 fraud cases in the test set and missing 5. In a real fraud detection system, those 5 missed cases represent real financial losses that went undetected.</p>
+        </div>
+    </section>
+    <section id="smote-solution">
+        <div class="container">
+            <h2>Key Finding #2: The SMOTE-Enhanced Model</h2>
+            <h3>How SMOTE Works</h3>
+            <p>Rather than simply duplicating existing fraud examples (which risks overfitting to those exact cases), SMOTE generates new, synthetic fraud examples by interpolating between existing minority-class data points and their nearest neighbors in feature space. This gives the model a richer, more balanced view of what fraud "looks like" during training, without fabricating unrealistic data.</p>
+            <p>SMOTE was applied only to the training set (31,916 legitimate vs. 83 fraud cases), expanding it to a perfectly balanced 31,916 vs. 31,916 before retraining an identical Random Forest architecture. The test set was left untouched and imbalanced, exactly as real-world fraud would actually be distributed, to ensure an honest evaluation.</p>
+            <div class="tableau-viz" id="confusion-matrices">
+                <img src="fraud-confusion-matrix.png" alt="Confusion matrices comparing the baseline and SMOTE-enhanced Random Forest models on the test set" style="width: 100%; display: block;">
+            </div>
+            <h3>The Result</h3>
+            <p>With an identical model architecture, changing only the class balance of the training data, fraud recall jumped from 76% to <strong>95%</strong>, catching 20 of 21 fraud cases in testing and missing just 1. Precision held essentially steady (94% to 95%), and the false positive count stayed effectively flat (increasing by exactly 0 legitimate transactions misclassified, per the confusion matrices above). F1-score for the fraud class improved from 0.84 to 0.95, an 11-point gain that reflects a genuinely better balance of precision and recall, not a trade-off between them.</p>
+        </div>
+    </section>
+    <section id="business-tradeoffs">
+        <div class="container">
+            <h2>What This Means: Business Trade-offs</h2>
+            <p>In fraud detection, false negatives (missed fraud) and false positives (legitimate transactions incorrectly flagged) carry very different costs. A missed fraud case can mean direct financial loss and a damaged customer relationship. A false positive typically means a declined transaction and customer friction, annoying, but far less costly than letting fraud through.</p>
+            <p>This is exactly why recall, not accuracy, is the metric that matters most for this problem. The SMOTE-enhanced model's near-flat false positive rate alongside a substantial recall improvement represents close to a best-case outcome: catching significantly more fraud without meaningfully increasing customer friction. In a production setting, the exact operating point (how aggressively to flag borderline cases) would ultimately be tuned based on a business's specific cost structure for missed fraud versus false alarms.</p>
+        </div>
+    </section>
+    <section id="limitations">
+        <div class="container">
+            <h2>Limitations & Transparency</h2>
+            <p>Like all analyses, this project has limitations worth understanding when interpreting the findings:</p>
+            <div class="callout warning">
+                <h4>1. Small Absolute Number of Fraud Cases</h4>
+                <p>With only 104 total fraud cases (21 in the test set), each individual prediction carries significant weight in the reported metrics. A single additional missed or caught case shifts recall by roughly 5 percentage points. Results should be interpreted as directionally strong evidence for SMOTE's effectiveness rather than a precise, stable percentage that would hold at larger sample sizes.</p>
+            </div>
+            <div class="callout info">
+                <h4>2. Synthetic Data Carries Assumptions</h4>
+                <p>SMOTE generates synthetic examples by interpolating in feature space, which assumes that the space between two real fraud cases is itself a realistic representation of fraud. This assumption generally holds well for numeric, PCA-transformed features like those in this dataset, but is a simplification worth noting.</p>
+            </div>
+            <div class="callout info">
+                <h4>3. No Threshold or Cost-Sensitive Tuning</h4>
+                <p>This analysis compares two models at their default classification threshold (0.5). A production deployment would likely tune the decision threshold explicitly based on the business's real cost ratio between false positives and false negatives, potentially improving results further in either direction.</p>
+            </div>
+        </div>
+    </section>
+    <section id="conclusion">
+        <div class="container">
+            <h2>The Bottom Line</h2>
+            <h3>The Core Finding</h3>
+            <p>On a dataset where fraud represented just 0.26% of transactions, applying SMOTE to balance the training data improved fraud recall from 76% to 95%, while precision remained essentially unchanged. This demonstrates that the choice of how to handle class imbalance, not just which algorithm to use, can be the single highest-leverage decision in an imbalanced classification problem.</p>
+            <h3>Why This Generalizes</h3>
+            <p>Severe class imbalance shows up constantly in real-world business problems beyond fraud: rare disease diagnosis, equipment failure prediction, customer churn among a loyal base, and manufacturing defect detection all share this same structure. The core lesson here, that standard accuracy metrics actively mislead under imbalance and that techniques like SMOTE offer a meaningful, measurable fix, applies well beyond this specific dataset.</p>
+        </div>
+    </section>
+    <section id="methodology">
+        <div class="container">
+            <h2>Methodology & Data Notes</h2>
+            <div class="collapsible-section">
+                <button class="collapsible-toggle" onclick="toggleCollapsible()">
+                    Click to expand detailed methodology
+                </button>
+                <div class="collapsible-content" id="methodologyContent">
+                    <div class="collapsible-inner">
+                        <h3>Dataset</h3>
+                        <p>39,999 credit card transactions with 30 numeric, PCA-transformed features plus a binary fraud label. 104 transactions (0.26%) were labeled fraudulent, and 39,895 (99.74%) were legitimate.</p>
+                        <h3>Technical Approach</h3>
+                        <p>All data processing and modeling was conducted in Python using pandas, scikit-learn, and imbalanced-learn, structured as a three-part pipeline:</p>
+                        <ol>
+                            <li>Baseline Random Forest training and evaluation on imbalanced data</li>
+                            <li>SMOTE application and Random Forest retraining on balanced data</li>
+                            <li>Side-by-side comparison and automated PDF report generation</li>
+                        </ol>
+                        <h3>Train-Test Split</h3>
+                        <p>An 80/20 stratified split (stratified on the fraud label) was used to preserve the same 0.26% fraud rate in both the training and test sets. SMOTE was applied only after this split, and only to the training data, so the test set remained untouched and realistically imbalanced for an honest evaluation.</p>
+                        <ul>
+                            <li><strong>Training set (pre-SMOTE):</strong> 31,916 legitimate, 83 fraud</li>
+                            <li><strong>Training set (post-SMOTE):</strong> 31,916 legitimate, 31,916 fraud (synthetically balanced)</li>
+                            <li><strong>Test set (untouched):</strong> 7,979 legitimate, 21 fraud</li>
+                        </ul>
+                        <h3>Model Configuration</h3>
+                        <p>Both the baseline and SMOTE-enhanced models used an identical Random Forest architecture (100 estimators, default scikit-learn hyperparameters otherwise), so that any performance difference between the two can be attributed specifically to the class balancing technique rather than to differing model complexity.</p>
+                        <h3>Final Model Performance (Test Set, n = 8,000)</h3>
+                        <table style="width: 100%; border-collapse: collapse; margin: 1.5rem 0;">
+                            <tr style="border-bottom: 2px solid var(--color-border);">
+                                <th style="text-align: left; padding: 0.75rem 0.5rem; font-family: var(--font-body); font-size: 0.85rem; color: var(--color-text-light);">Model</th>
+                                <th style="text-align: left; padding: 0.75rem 0.5rem; font-family: var(--font-body); font-size: 0.85rem; color: var(--color-text-light);">Fraud Precision</th>
+                                <th style="text-align: left; padding: 0.75rem 0.5rem; font-family: var(--font-body); font-size: 0.85rem; color: var(--color-text-light);">Fraud Recall</th>
+                                <th style="text-align: left; padding: 0.75rem 0.5rem; font-family: var(--font-body); font-size: 0.85rem; color: var(--color-text-light);">Fraud F1</th>
+                                <th style="text-align: left; padding: 0.75rem 0.5rem; font-family: var(--font-body); font-size: 0.85rem; color: var(--color-text-light);">Fraud Cases Missed</th>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--color-border);">
+                                <td style="padding: 0.75rem 0.5rem;">Baseline Random Forest</td>
+                                <td style="padding: 0.75rem 0.5rem;">0.94</td>
+                                <td style="padding: 0.75rem 0.5rem;">0.76</td>
+                                <td style="padding: 0.75rem 0.5rem;">0.84</td>
+                                <td style="padding: 0.75rem 0.5rem;">5 of 21</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0.75rem 0.5rem;"><strong>SMOTE-Enhanced Random Forest</strong></td>
+                                <td style="padding: 0.75rem 0.5rem;"><strong>0.95</strong></td>
+                                <td style="padding: 0.75rem 0.5rem;"><strong>0.95</strong></td>
+                                <td style="padding: 0.75rem 0.5rem;"><strong>0.95</strong></td>
+                                <td style="padding: 0.75rem 0.5rem;"><strong>1 of 21</strong></td>
+                            </tr>
+                        </table>
+                        <h3>Reporting</h3>
+                        <p>Results were compiled into an automated three-page PDF report (side-by-side confusion matrices, a full metric comparison table, and a written summary of improvements), generated programmatically to support quick sharing with non-technical stakeholders.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <p><strong>Credit Card Fraud Detection with SMOTE</strong></p>
+            <p>Portfolio Project by Aiden Jajo | Data Analytics • Python • scikit-learn • imbalanced-learn</p>
+            <p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.7;">Analysis conducted July 2026<br>
+            <a href="https://aidenjajo.com">← Return to main portfolio</a></p>
+        </div>
+    </footer>
+    <script>
+        function toggleCollapsible() {
+            const toggle = document.querySelector('.collapsible-toggle');
+            const content = document.getElementById('methodologyContent');
+            toggle.classList.toggle('active');
+            content.classList.toggle('active');
+        }
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
