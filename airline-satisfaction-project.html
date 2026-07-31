@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Data analytics portfolio project predicting airline passenger satisfaction from 130,000 survey records using tuned Random Forest and XGBoost models, achieving 96% classification accuracy. Built with Python, scikit-learn, and XGBoost.">
+    <meta property="og:title" content="96% Accuracy: Predicting Airline Passenger Satisfaction">
+    <meta property="og:description" content="Machine learning project predicting airline passenger satisfaction from 130,000 survey records, achieving 96% accuracy with tuned Random Forest and XGBoost models.">
+    <meta property="og:image" content="https://aidenjajo.com/airline-confusion-matrix.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="628">
+    <meta property="og:url" content="https://aidenjajo.com/airline-satisfaction-project.html">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="96% Accuracy: Predicting Airline Passenger Satisfaction">
+    <meta name="twitter:description" content="Machine learning project predicting airline passenger satisfaction from 130,000 survey records, achieving 96% accuracy with tuned Random Forest and XGBoost models.">
+    <meta name="twitter:image" content="https://aidenjajo.com/airline-confusion-matrix.png">
+    <title>96% Accuracy: Predicting Airline Passenger Satisfaction</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="medicare-partd-style.css">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MTBVY4BP5W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-MTBVY4BP5W');
+    </script>
+</head>
+<body>
+    <nav class="portfolio-nav">
+        <div class="nav-container">
+            <a href="https://aidenjajo.com" class="nav-logo">Aiden B. Jajo</a>
+            <div class="nav-links">
+                <a href="https://aidenjajo.com#projects" class="nav-link">← Back to Portfolio</a>
+                <a href="#methodology" class="nav-link">Methodology</a>
+            </div>
+        </div>
+    </nav>
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Predicting Passenger Satisfaction</h1>
+            <p class="hero-subtitle">A Machine Learning Classification Analysis of 130,000 Airline Passengers<br>A Data Analytics Portfolio Project | July 2026</p>
+            <div class="hero-stats">
+                <div class="big-stat">96%</div>
+                <p class="stat-description">Classification accuracy predicting passenger satisfaction using a tuned XGBoost model</p>
+            </div>
+            <div class="tableau-viz" id="model-comparison" style="margin-top: 3rem;">
+                <img src="airline-model-comparison.png" alt="Accuracy and F1 score comparison between tuned Random Forest and XGBoost models" style="width: 100%; display: block;">
+            </div>
+        </div>
+    </section>
+    <section id="executive-summary" class="exec-summary">
+        <div class="exec-summary-inner">
+            <div class="exec-header">
+                <p class="exec-label">Project Overview</p>
+                <h2 class="exec-title">What This Analysis Found</h2>
+                <p class="exec-subtitle">A 60 second overview before the full report.</p>
+            </div>
+            <div class="exec-findings-grid">
+                <div class="exec-finding">
+                    <p class="exec-stat">96%</p>
+                    <p class="exec-stat-label">accuracy from tuned XGBoost model</p>
+                    <p class="exec-stat-desc">After GridSearchCV hyperparameter tuning, XGBoost slightly outperformed Random Forest with fewer false positives (323 vs. 331) and fewer false negatives (626 vs. 667) on the held-out test set.</p>
+                </div>
+                <div class="exec-finding">
+                    <p class="exec-stat">130K</p>
+                    <p class="exec-stat-label">passenger records analyzed</p>
+                    <p class="exec-stat-desc">25 features spanning demographics, flight details, delay times, and 14 individual service quality ratings (WiFi, seat comfort, boarding, cleanliness, and more).</p>
+                </div>
+                <div class="exec-finding">
+                    <p class="exec-stat">2</p>
+                    <p class="exec-stat-label">ensemble models tuned and compared</p>
+                    <p class="exec-stat-desc">Random Forest and XGBoost, each optimized across a 27-combination hyperparameter grid with 3-fold cross-validation, totaling 486 model fits.</p>
+                </div>
+            </div>
+            <div class="exec-details-grid">
+                <div class="exec-detail">
+                    <p class="exec-detail-label">Approach</p>
+                    <p class="exec-detail-text">Cleaned and preprocessed 130,000 passenger survey records (outlier removal, missing value imputation, categorical encoding, feature scaling), then trained and hyperparameter-tuned Random Forest and XGBoost classifiers using stratified train-test splitting to preserve class balance.</p>
+                </div>
+                <div class="exec-detail">
+                    <p class="exec-detail-label">Tools & Context</p>
+                    <div class="exec-tags">
+                        <span class="exec-tag">Python</span>
+                        <span class="exec-tag">pandas</span>
+                        <span class="exec-tag">scikit-learn</span>
+                        <span class="exec-tag">XGBoost</span>
+                        <span class="exec-tag">GridSearchCV</span>
+                    </div>
+                    <p class="exec-detail-context">Built as part of a graduate-level data science coursework portfolio, with an automated PDF reporting pipeline for stakeholder-ready output.</p>
+                </div>
+            </div>
+            <div class="exec-cta">
+                <a href="#introduction" class="exec-cta-link">Read the full analysis ↓</a>
+            </div>
+        </div>
+    </section>
+    <section id="introduction">
+        <div class="container">
+            <h2>Introduction</h2>
+            <p>Airline passenger satisfaction is one of the most consequential metrics an airline can track: it shapes repeat business, brand reputation, and customer lifetime value in an industry with notoriously thin margins. But satisfaction is shaped by dozens of interacting factors, from seat comfort to boarding process to flight delays, making it difficult to know where to focus improvement efforts without a data-driven approach.</p>
+            <p>This project analyzes a survey of 129,880 airline passengers to build a classification model that predicts whether a passenger will report themselves as satisfied or neutral/dissatisfied based on their demographic profile, flight details, and service experience ratings. The goal was twofold: build the most accurate predictive model possible, and demonstrate a complete, production-style machine learning workflow from raw data to a stakeholder-ready report.</p>
+            <p>The dataset includes 25 features per passenger, covering demographics (age, gender, customer type), flight details (travel class, distance, type of travel), delay times, and 14 individual service ratings on a 0-5 scale covering everything from inflight WiFi to baggage handling to cleanliness.</p>
+        </div>
+    </section>
+    <section id="approach">
+        <div class="container">
+            <h2>The Approach: Data Preparation</h2>
+            <h3>Cleaning a Real-World Survey Dataset</h3>
+            <p>Survey data is rarely analysis-ready out of the box, and this dataset was no exception. The raw data included unnecessary index columns, missing values scattered across both numeric and categorical fields, and a small number of extreme outliers in the flight delay columns that could have skewed model training.</p>
+            <h3>Preprocessing Pipeline</h3>
+            <p>The preprocessing pipeline addressed each of these issues systematically:</p>
+            <ul>
+                <li><strong>Outlier removal:</strong> Departure and arrival delay values above the 99th percentile were removed, since a handful of extreme delays (multi-day irregular operations, not typical travel experiences) would otherwise distort the model's understanding of a "normal" delayed flight.</li>
+                <li><strong>Missing value imputation:</strong> Numeric fields were filled with the median to preserve the underlying distribution, while categorical fields were filled with the most frequent category.</li>
+                <li><strong>Categorical encoding:</strong> Gender, Customer Type, Type of Travel, Class, and the satisfaction target were converted to numeric form using label encoding.</li>
+                <li><strong>Feature scaling:</strong> All features were standardized so that no single feature (e.g., flight distance, measured in hundreds of miles) would dominate model training simply due to its scale relative to features like individual service ratings (measured 0-5).</li>
+                <li><strong>Stratified splitting:</strong> The data was split 80/20 into training and test sets with stratification on the target variable, ensuring both sets preserved the same satisfied/dissatisfied ratio found in the full dataset.</li>
+            </ul>
+        </div>
+    </section>
+    <section id="modeling">
+        <div class="container">
+            <h2>Key Finding: Model Training & Tuning</h2>
+            <h3>Two Ensemble Approaches, Head to Head</h3>
+            <p>Two ensemble learning algorithms were selected for this task: <strong>Random Forest</strong>, which builds many decision trees and averages their predictions, and <strong>XGBoost</strong>, a gradient boosting framework that builds trees sequentially, with each new tree correcting the errors of the ones before it. Both are strong choices for structured, tabular data like this survey dataset.</p>
+            <h3>Hyperparameter Optimization</h3>
+            <p>Rather than using default settings, both models were tuned using GridSearchCV with 3-fold cross-validation, systematically testing 27 hyperparameter combinations per model (81 fits each, 162 total):</p>
+            <ul>
+                <li><strong>Random Forest:</strong> number of trees (50, 100, 200), maximum tree depth (10, 20, unrestricted), and minimum samples required to split a node (2, 5, 10)</li>
+                <li><strong>XGBoost:</strong> number of trees (50, 100, 200), learning rate (0.01, 0.1, 0.2), and maximum tree depth (3, 6, 9)</li>
+            </ul>
+            <p>The best-performing configurations were 100 trees with unrestricted depth for Random Forest, and 200 trees with a learning rate of 0.1 and max depth of 9 for XGBoost.</p>
+            <div class="tableau-viz" id="confusion-matrices">
+                <img src="airline-confusion-matrix.png" alt="Confusion matrices comparing tuned Random Forest and XGBoost model predictions on the test set" style="width: 100%; display: block;">
+            </div>
+            <h3>What This Represents</h3>
+            <p>On a held-out test set of 25,609 passengers the model had never seen during training, the tuned XGBoost model correctly classified 96% of passengers as satisfied or dissatisfied, with balanced precision and recall across both classes (0.97 precision / 0.94 recall for satisfied passengers). Random Forest performed nearly identically, trailing XGBoost by only a handful of misclassifications out of over 25,000 predictions. This kind of accuracy on real survey data, rather than a clean textbook dataset, reflects both the quality of the underlying signal in service ratings and the value of systematic hyperparameter tuning over default model settings.</p>
+        </div>
+    </section>
+    <section id="business-context">
+        <div class="container">
+            <h2>Why This Matters: From Model to Business Value</h2>
+            <p>A 96% accurate satisfaction classifier is more than an academic exercise. In practice, a model like this could be used to flag at-risk passengers in near real time based on their trip characteristics and in-flight service delivery, allowing an airline to intervene proactively (through service recovery gestures, loyalty outreach, or targeted follow-up) rather than only learning about dissatisfaction after the fact through churn or negative reviews.</p>
+            <p>Because the underlying model also exposes which features most influence its predictions, this type of analysis can help airlines prioritize operational investment: is it more valuable to reduce delays, improve boarding processes, or upgrade inflight entertainment? Quantifying passenger experience this precisely turns a subjective question into a data-driven resource allocation decision.</p>
+        </div>
+    </section>
+    <section id="limitations">
+        <div class="container">
+            <h2>Limitations & Transparency</h2>
+            <p>Like all analyses, this project has limitations worth understanding when interpreting the findings:</p>
+            <div class="callout info">
+                <h4>1. Survey-Based Ground Truth</h4>
+                <p>The satisfaction label comes from passenger self-report on a survey, not from a downstream business outcome like rebooking or churn. Self-reported satisfaction is a reasonable proxy, but it is not a perfect substitute for actual customer retention behavior.</p>
+            </div>
+            <div class="callout info">
+                <h4>2. Feature Importance Not Yet Explored</h4>
+                <p>While the model achieves strong predictive accuracy, this analysis focused on classification performance rather than explaining <em>which</em> individual features (delays, specific service ratings, travel class) drive predictions most strongly. A feature importance or SHAP-based analysis would be a natural next step to translate this model into specific operational recommendations.</p>
+            </div>
+            <div class="callout info">
+                <h4>3. Single Time-Period Snapshot</h4>
+                <p>The dataset represents a snapshot of passenger experience rather than a longitudinal view. Satisfaction drivers can shift over time (e.g., after service changes or pricing changes), so a production version of this model would benefit from periodic retraining on fresh data.</p>
+            </div>
+        </div>
+    </section>
+    <section id="conclusion">
+        <div class="container">
+            <h2>The Bottom Line</h2>
+            <h3>The Core Finding</h3>
+            <p>Starting from a raw 130,000-row passenger survey with missing values, outliers, and mixed data types, a systematic preprocessing and hyperparameter tuning pipeline produced a model that correctly predicts passenger satisfaction 96% of the time. XGBoost narrowly outperformed Random Forest, but both ensemble approaches proved highly effective on this structured, tabular dataset.</p>
+            <h3>Why the Process Matters as Much as the Result</h3>
+            <p>The specific accuracy number is only part of the story. Equally important is the reproducible pipeline behind it: documented preprocessing decisions, systematic (rather than manual) hyperparameter search, stratified evaluation to avoid misleading results from class imbalance, and automated reporting so results can be communicated to non-technical stakeholders without re-running code.</p>
+        </div>
+    </section>
+    <section id="methodology">
+        <div class="container">
+            <h2>Methodology & Data Notes</h2>
+            <div class="collapsible-section">
+                <button class="collapsible-toggle" onclick="toggleCollapsible()">
+                    Click to expand detailed methodology
+                </button>
+                <div class="collapsible-content" id="methodologyContent">
+                    <div class="collapsible-inner">
+                        <h3>Dataset</h3>
+                        <p>129,880 airline passenger survey records with 25 features spanning demographics (Gender, Age, Customer Type), flight details (Type of Travel, Class, Flight Distance), delay times (Departure and Arrival Delay in Minutes), 14 individual service quality ratings (0-5 scale, covering WiFi, boarding, seat comfort, entertainment, cleanliness, and more), and the target label (satisfied vs. neutral/dissatisfied).</p>
+                        <h3>Technical Approach</h3>
+                        <p>All data processing and modeling was conducted in Python using pandas, scikit-learn, and XGBoost, structured as a three-part pipeline:</p>
+                        <ol>
+                            <li>Data preprocessing and inspection</li>
+                            <li>Model training and hyperparameter optimization via GridSearchCV</li>
+                            <li>Model evaluation, visualization, and automated PDF report generation</li>
+                        </ol>
+                        <h3>Preprocessing Details</h3>
+                        <ul>
+                            <li><strong>Outlier removal:</strong> Departure and arrival delay values above the 99th percentile excluded</li>
+                            <li><strong>Missing value imputation:</strong> Median for numeric fields, mode for categorical fields</li>
+                            <li><strong>Encoding:</strong> Label encoding applied to Gender, Customer Type, Type of Travel, Class, and satisfaction target</li>
+                            <li><strong>Scaling:</strong> StandardScaler applied to all features prior to modeling</li>
+                            <li><strong>Split:</strong> 80/20 stratified train-test split (stratified on satisfaction label)</li>
+                        </ul>
+                        <h3>Hyperparameter Grids</h3>
+                        <p><strong>Random Forest</strong> — n_estimators: [50, 100, 200], max_depth: [10, 20, None], min_samples_split: [2, 5, 10]</p>
+                        <p><strong>XGBoost</strong> — n_estimators: [50, 100, 200], learning_rate: [0.01, 0.1, 0.2], max_depth: [3, 6, 9]</p>
+                        <p>Both grids were searched using GridSearchCV with 3-fold cross-validation, scored on accuracy, totaling 81 fits per model (162 total).</p>
+                        <h3>Final Model Performance (Test Set, n = 25,609)</h3>
+                        <table style="width: 100%; border-collapse: collapse; margin: 1.5rem 0;">
+                            <tr style="border-bottom: 2px solid var(--color-border);">
+                                <th style="text-align: left; padding: 0.75rem 0.5rem; font-family: var(--font-body); font-size: 0.85rem; color: var(--color-text-light);">Model</th>
+                                <th style="text-align: left; padding: 0.75rem 0.5rem; font-family: var(--font-body); font-size: 0.85rem; color: var(--color-text-light);">Accuracy</th>
+                                <th style="text-align: left; padding: 0.75rem 0.5rem; font-family: var(--font-body); font-size: 0.85rem; color: var(--color-text-light);">Precision (Satisfied)</th>
+                                <th style="text-align: left; padding: 0.75rem 0.5rem; font-family: var(--font-body); font-size: 0.85rem; color: var(--color-text-light);">Recall (Satisfied)</th>
+                                <th style="text-align: left; padding: 0.75rem 0.5rem; font-family: var(--font-body); font-size: 0.85rem; color: var(--color-text-light);">F1</th>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--color-border);">
+                                <td style="padding: 0.75rem 0.5rem;">Random Forest (tuned)</td>
+                                <td style="padding: 0.75rem 0.5rem;">96%</td>
+                                <td style="padding: 0.75rem 0.5rem;">0.97</td>
+                                <td style="padding: 0.75rem 0.5rem;">0.94</td>
+                                <td style="padding: 0.75rem 0.5rem;">0.95</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0.75rem 0.5rem;"><strong>XGBoost (tuned)</strong></td>
+                                <td style="padding: 0.75rem 0.5rem;"><strong>96%</strong></td>
+                                <td style="padding: 0.75rem 0.5rem;">0.97</td>
+                                <td style="padding: 0.75rem 0.5rem;">0.94</td>
+                                <td style="padding: 0.75rem 0.5rem;"><strong>0.96</strong></td>
+                            </tr>
+                        </table>
+                        <h3>Reporting</h3>
+                        <p>Results were compiled into an automated one-page PDF report (classification metrics and confusion matrix visualizations for both models), generated programmatically rather than assembled by hand, to support quick sharing with non-technical stakeholders.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <p><strong>Airline Passenger Satisfaction Prediction</strong></p>
+            <p>Portfolio Project by Aiden Jajo | Data Analytics • Python • scikit-learn • XGBoost</p>
+            <p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.7;">Analysis conducted July 2026<br>
+            <a href="https://aidenjajo.com">← Return to main portfolio</a></p>
+        </div>
+    </footer>
+    <script>
+        function toggleCollapsible() {
+            const toggle = document.querySelector('.collapsible-toggle');
+            const content = document.getElementById('methodologyContent');
+            toggle.classList.toggle('active');
+            content.classList.toggle('active');
+        }
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
