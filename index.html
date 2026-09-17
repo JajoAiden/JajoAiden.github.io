@@ -28,6 +28,10 @@
     <nav class="nav">
         <div class="nav-container">
             <a href="#" class="nav-logo">Aiden B. Jajo</a>
+            <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+            </button>
             <div class="nav-links">
                 <a href="#about" class="nav-link">About</a>
                 <a href="#projects" class="nav-link">Projects</a>
@@ -298,6 +302,25 @@
         };
         window.addEventListener('scroll', onScroll, { passive: true });
         onScroll();
+
+        // Mobile menu: the toggle morphs into a close icon and reveals the links as a glass panel
+        const navToggle = document.querySelector('.nav-toggle');
+        const closeMenu = () => {
+            nav.classList.remove('nav-open');
+            navToggle.setAttribute('aria-expanded', 'false');
+        };
+        navToggle.addEventListener('click', () => {
+            const isOpen = nav.classList.toggle('nav-open');
+            navToggle.setAttribute('aria-expanded', String(isOpen));
+        });
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+        document.addEventListener('click', (e) => {
+            if (nav.classList.contains('nav-open') && !nav.contains(e.target)) {
+                closeMenu();
+            }
+        });
     </script>
 </body>
 </html>
