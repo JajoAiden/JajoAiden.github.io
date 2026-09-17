@@ -19,6 +19,12 @@
     </script>
 </head>
 <body>
+    <div class="ambient" aria-hidden="true">
+        <div class="ambient-blob ambient-blob--amber"></div>
+        <div class="ambient-blob ambient-blob--rose"></div>
+        <div class="ambient-blob ambient-blob--sand"></div>
+    </div>
+
     <nav class="nav">
         <div class="nav-container">
             <a href="#" class="nav-logo">Aiden B. Jajo</a>
@@ -284,6 +290,14 @@
                 }
             });
         });
+
+        // Scroll edge effect: the floating glass nav thickens once content scrolls beneath it
+        const nav = document.querySelector('.nav');
+        const onScroll = () => {
+            nav.classList.toggle('is-scrolled', window.scrollY > 20);
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
     </script>
 </body>
 </html>
