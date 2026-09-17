@@ -31,6 +31,11 @@
     </script>
 </head>
 <body>
+    <div class="ambient" aria-hidden="true">
+        <div class="ambient-blob ambient-blob--amber"></div>
+        <div class="ambient-blob ambient-blob--rose"></div>
+        <div class="ambient-blob ambient-blob--sand"></div>
+    </div>
     <nav class="portfolio-nav">
         <div class="nav-container">
             <a href="https://aidenjajo.com" class="nav-logo">Aiden B. Jajo</a>
@@ -257,6 +262,13 @@
                 }
             });
         });
+
+        const portfolioNav = document.querySelector('.portfolio-nav');
+        const onNavScroll = () => {
+            portfolioNav.classList.toggle('is-scrolled', window.scrollY > 20);
+        };
+        window.addEventListener('scroll', onNavScroll, { passive: true });
+        onNavScroll();
     </script>
 </body>
 </html>
