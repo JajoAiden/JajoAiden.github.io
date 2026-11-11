@@ -19,6 +19,8 @@ const navLinks = document.querySelectorAll('.nav-link');
 const sections = document.querySelectorAll('section[id]');
 
 // Nav thickens once content scrolls beneath it
+// The whole page is dark now, so the nav stays in its smoked-glass style
+nav.classList.add('on-dark');
 const onScroll = () => nav.classList.toggle('is-scrolled', window.scrollY > 20);
 window.addEventListener('scroll', onScroll, { passive: true });
 onScroll();
@@ -54,9 +56,33 @@ sections.forEach(section => sectionObserver.observe(section));
 const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            revealObserver.unobserve(entry.target);
+            const el = entry.target;
+            el.classList.add('is-visible');
+            revealObserver.unobserve(el);
+            // once revealed, hand the element back to its own hover transitions
+            const delay = parseInt(getComputedStyle(el).getPropertyValue('--d')) || 0;
+            setTimeout(() => el.classList.remove('reveal', 'is-visible'), 900 + delay);
         }
     });
 }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// Light / dark switch: remembers the visitor's choice; the hero chart listens for 'themechange'
+const themeBtn = document.querySelector('.theme-toggle');
+const root = document.documentElement;
+const syncThemeBtn = () => {
+    const light = root.getAttribute('data-theme') === 'light';
+    themeBtn.setAttribute('aria-label', light ? 'Switch to dark mode' : 'Switch to light mode');
+};
+if (themeBtn) {
+    syncThemeBtn();
+    themeBtn.addEventListener('click', () => {
+        const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+        root.classList.add('theme-anim');
+        root.setAttribute('data-theme', next);
+        try { localStorage.setItem('theme', next); } catch (e) {}
+        syncThemeBtn();
+        document.dispatchEvent(new CustomEvent('themechange', { detail: next }));
+        setTimeout(() => root.classList.remove('theme-anim'), 500);
+    });
+}

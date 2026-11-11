@@ -4,10 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aiden B. Jajo | Data & Analytics</title>
+    <script>
+      (function () {
+        var t = 'dark';
+        try { t = localStorage.getItem('theme') || 'dark'; } catch (e) {}
+        document.documentElement.setAttribute('data-theme', t);
+      })();
+    </script>
     <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/transitions.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=IBM+Plex+Serif:ital,wght@0,300;0,400;1,300&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MTBVY4BP5W"></script>
@@ -27,294 +35,343 @@
 
     <nav class="nav">
         <div class="nav-container">
-            <a href="#" class="nav-logo">Aiden B. Jajo</a>
+            <a href="#top" class="nav-logo">Aiden B. Jajo</a>
+            <button class="theme-toggle" type="button" aria-label="Switch to light mode" title="Switch theme">
+                <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.7"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+                <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+            </button>
             <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
                 <span></span>
                 <span></span>
             </button>
             <div class="nav-links">
                 <a href="#about" class="nav-link">About</a>
-                <a href="#projects" class="nav-link">Projects</a>
-                <a href="#goals" class="nav-link">Goals</a>
-                <a href="#resume" class="nav-link">Resume</a>
+                <a href="#projects" class="nav-link">Work</a>
+                <a href="#resume" class="nav-link">Journey</a>
+                <a href="#goals" class="nav-link">Next</a>
                 <a href="#contact" class="nav-link nav-link-cta">Contact</a>
             </div>
         </div>
     </nav>
 
-    <section class="hero">
+    <section class="hero" id="top">
+        <div class="hero-studs" aria-hidden="true"></div>
+        <div class="stud-layer" role="img" aria-label="Live Mizavo activity: each column of studs is one day, today on the right"></div>
+        <div class="hero-scrim" aria-hidden="true"></div>
         <div class="hero-content">
-            <div class="hero-portrait">
-                <div class="hero-portrait-frame">
-                    <img src="assets/images/portrait.png" alt="Painted portrait of Aiden B. Jajo" />
-                </div>
-            </div>
             <div class="hero-text">
                 <div class="hero-badge">
-                    <span>B.S. Computer Science, SDSU</span>
+                    <span><span class="badge-long">B.S. Computer Science, SDSU</span><span class="badge-short">B.S. CS, SDSU</span></span>
                     <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     <span>M.S. Big Data Analytics</span>
                 </div>
-                <h1 class="hero-title">Turning data into decisions</h1>
+                <h1 class="hero-title">Aiden B. Jajo</h1>
+                <p class="hero-tagline" aria-label="Data Analyst // Python · SQL · Tableau // San Diego">
+                    <span class="hero-typed" data-text="Data Analyst // Python · SQL · Tableau // San Diego" aria-hidden="true">Data Analyst // Python · SQL · Tableau // San Diego</span><span class="hero-cursor" aria-hidden="true"></span>
+                </p>
                 <p class="hero-description">
-                    Python, SQL, and data visualization — with an eye for the story in the numbers.
+                    Turning data into decisions, with an eye for the story in the numbers.
                 </p>
                 <div class="hero-buttons">
                     <a href="#projects" class="btn btn-primary">View my work</a>
                     <a href="#contact" class="btn btn-secondary">Get in touch</a>
                 </div>
+                <a class="hero-live" href="https://mizavo.gg" target="_blank" rel="noopener" hidden>
+                    <i class="live-dot" aria-hidden="true"></i>
+                    <b>Live from Mizavo</b>
+                    <span class="hero-live-stats"></span>
+                </a>
             </div>
         </div>
     </section>
 
-    <section id="about" class="section about">
+    <main class="story">
+
+    <!-- 01 · About -->
+    <section id="about" class="section">
         <div class="container">
-            <h2 class="section-title reveal">About me</h2>
-            <div class="about-content">
+            <header class="section-head reveal">
+                <span class="eyebrow"><b>01</b> About</span>
+                <h2 class="section-title">I look for the story hiding in the numbers.</h2>
+            </header>
+            <div class="about-grid">
                 <div class="about-text reveal">
-                    <p class="about-intro">
-                        I'm a recent Computer Science graduate from San Diego State University with a passion
-                        for uncovering stories hidden in data.
+                    <p>
+                        I'm a Computer Science graduate from San Diego State University (Magna Cum Laude),
+                        now pursuing my M.S. in Big Data Analytics at SDSU. I work in Python for data
+                        manipulation, SQL for querying, and Tableau for visualization.
                     </p>
                     <p>
-                        I earned my B.S. in Computer Science, Magna Cum Laude (3.75 GPA), in May 2026, and
-                        I'm now pursuing my M.S. in Big Data Analytics at SDSU. I work in Python for data
-                        manipulation, SQL for database querying, and Tableau for visualization — my approach
-                        is methodical, and I believe the best insights come from asking the right questions
+                        My approach is methodical: the best insights come from asking the right questions
                         and letting the data tell its story.
                     </p>
                     <p>
-                        Growing up in San Diego, I've been shaped by this city's diversity and its unique
-                        challenges in healthcare access. My work at an independent pharmacy showed me how
-                        data-driven solutions can improve people's lives — identifying cost-saving
-                        opportunities in prescription patterns, streamlining processes that directly impact
-                        patient care. That experience is what pulled me toward data in the first place:
-                        seeing how the right numbers, presented the right way, change what people decide
-                        to do next.
+                        Growing up in San Diego, I've been shaped by this city's diversity and its
+                        challenges in healthcare access. Working at an independent pharmacy showed me how
+                        data can improve people's lives, from spotting cost-saving patterns in
+                        prescriptions to streamlining the processes behind patient care. That's what pulled
+                        me toward data: seeing how the right numbers, presented the right way, change what
+                        people decide to do next.
                     </p>
                 </div>
-                <div class="about-stats reveal">
-                    <div class="stat">
-                        <span class="stat-number">3.75</span>
-                        <span class="stat-label">GPA, Magna Cum Laude</span>
+                <figure class="about-portrait reveal" style="--d: 120ms">
+                    <img src="assets/images/portrait.png" alt="Painted portrait of Aiden B. Jajo" loading="lazy" />
+                </figure>
+            </div>
+            <dl class="kpis reveal">
+                <div class="kpi"><dd>3.75</dd><dt>GPA, Magna Cum Laude</dt></div>
+                <div class="kpi"><dd>B.S.</dd><dt>Computer Science, 2026</dt></div>
+                <div class="kpi"><dd>M.S.</dd><dt>Big Data Analytics, in progress</dt></div>
+                <div class="kpi"><dd>4</dd><dt>Portfolio projects</dt></div>
+            </dl>
+        </div>
+    </section>
+
+    <!-- 02 · Work -->
+    <section id="projects" class="section">
+        <div class="container">
+            <header class="section-head reveal">
+                <span class="eyebrow"><b>02</b> Work</span>
+                <h2 class="section-title">Selected projects.</h2>
+            </header>
+
+            <article class="feature reveal">
+                <div class="feature-text">
+                    <div class="feature-meta">
+                        <span class="pill pill--copper">Featured</span>
+                        <span class="pill pill--ghost"><i class="live-dot"></i>In testing</span>
                     </div>
-                    <div class="stat">
-                        <span class="stat-number">B.S.</span>
-                        <span class="stat-label">Computer Science, May 2026</span>
+                    <h3 class="feature-title">Mizavo</h3>
+                    <p class="feature-sub">A live trivia game for Twitch: you vs. your chat.</p>
+                    <p class="feature-desc">
+                        The streamer answers on screen, viewers answer by typing in chat, and whoever gets
+                        more right wins. Modes include Fact or Fake and Odd One Out, plus a daily challenge
+                        and leaderboards. I led the product, game design, content and testing, and built it
+                        with AI as my engineering partner.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Product design</span>
+                        <span class="tag">AI-assisted build</span>
+                        <span class="tag">Twitch</span>
+                        <span class="tag">Cloudflare Workers</span>
                     </div>
-                    <div class="stat">
-                        <span class="stat-number">M.S.</span>
-                        <span class="stat-label">Big Data Analytics, in progress</span>
-                    </div>
+                    <a href="https://mizavo.gg" class="feature-link" target="_blank" rel="noopener">Visit mizavo.gg <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
                 </div>
+                <a href="https://mizavo.gg" class="feature-shot" target="_blank" rel="noopener" aria-label="Open mizavo.gg">
+                    <img src="assets/images/mizavo/home.jpg" alt="Mizavo homepage: the MIZAVO wordmark glowing copper behind ribbed glass, with the line 'You vs. your chat.'" loading="lazy" />
+                </a>
+            </article>
+
+            <div class="work-grid">
+                <a href="projects/medicare-part-d.html" class="work-card work-card--clay reveal" style="--d: 0ms">
+                    <div class="viz viz-bars" aria-hidden="true">
+                        <i style="--h:92%"></i><i style="--h:74%"></i><i style="--h:61%"></i><i style="--h:50%"></i><i style="--h:41%"></i><i style="--h:33%"></i><i style="--h:27%"></i><i style="--h:22%"></i>
+                    </div>
+                    <span class="work-figure">$3.84B</span>
+                    <span class="work-caption">Potential annual Medicare savings identified</span>
+                    <h3 class="work-title">Medicare Part D Analysis</h3>
+                    <p class="work-desc">Prescriber data showing billions in potential savings from wider generic adoption, informed by my pharmacy experience.</p>
+                    <div class="project-tags"><span class="tag">Python</span><span class="tag">Tableau</span><span class="tag">Healthcare</span></div>
+                    <span class="work-link">Read the case study <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                </a>
+                <a href="projects/airline-satisfaction.html" class="work-card work-card--sky reveal" style="--d: 100ms">
+                    <div class="viz viz-ring" aria-hidden="true">
+                        <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="44" class="ring-track"/><circle cx="60" cy="60" r="44" class="ring-fill" style="--p:0.96"/></svg>
+                        <span>96<small>%</small></span>
+                    </div>
+                    <span class="work-figure">96%</span>
+                    <span class="work-caption">Prediction accuracy across 130K passenger records</span>
+                    <h3 class="work-title">Airline Passenger Satisfaction</h3>
+                    <p class="work-desc">Tuned Random Forest and XGBoost classifiers, with an automated PDF reporting pipeline for stakeholders.</p>
+                    <div class="project-tags"><span class="tag">Python</span><span class="tag">XGBoost</span><span class="tag">scikit-learn</span></div>
+                    <span class="work-link">Read the case study <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                </a>
+                <a href="projects/fraud-detection.html" class="work-card work-card--tan reveal" style="--d: 200ms">
+                    <div class="viz viz-compare" aria-hidden="true">
+                        <div class="cmp"><span>Baseline</span><b style="--v:76%"></b><em>76%</em></div>
+                        <div class="cmp cmp--hi"><span>SMOTE</span><b style="--v:95%"></b><em>95%</em></div>
+                    </div>
+                    <span class="work-figure">76%&nbsp;→&nbsp;95%</span>
+                    <span class="work-caption">Fraud recall improved after applying SMOTE</span>
+                    <h3 class="work-title">Fraud Detection with SMOTE</h3>
+                    <p class="work-desc">Tackled a 384:1 class imbalance in credit card fraud data without sacrificing precision.</p>
+                    <div class="project-tags"><span class="tag">Python</span><span class="tag">SMOTE</span><span class="tag">Imbalanced data</span></div>
+                    <span class="work-link">Read the case study <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                </a>
             </div>
         </div>
     </section>
 
-    <section id="projects" class="section projects">
+    <!-- 03 · Journey -->
+    <section id="resume" class="section">
         <div class="container">
-            <h2 class="section-title reveal">Featured projects</h2>
-            <div class="projects-grid">
-                <div class="project-card reveal">
-                    <div class="project-visual project-visual--type">
-                        <span class="project-visual-figure">$3.84B</span>
-                        <span class="project-visual-caption">Potential annual Medicare savings identified</span>
-                    </div>
-                    <div class="project-body">
-                        <h3 class="project-title">Medicare Part D Analysis</h3>
-                        <p class="project-description">
-                            Analysis of Medicare Part D prescriber data revealing billions in
-                            potential savings through increased generic adoption. Combined pharmacy
-                            experience with data science to identify actionable cost opportunities.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">Tableau</span>
-                            <span class="tag">Healthcare</span>
-                        </div>
-                        <a href="projects/medicare-part-d.html" class="project-link">
-                            See the project
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        </a>
-                    </div>
+            <header class="section-head reveal">
+                <span class="eyebrow"><b>03</b> Experience &amp; education</span>
+                <h2 class="section-title">My journey.</h2>
+            </header>
+
+            <div class="gantt reveal" role="img" aria-label="Timeline. Work: Mollison Adult Day Health Center, Nov 2020 to May 2021; Starbucks barista, May 2021 to Sep 2022; Cal-Med Transportation analyst, Jun 2021 to Nov 2022; Mollison Pharmacy clerk, Sep 2022 to present. Education: Associate's in Computer Science at Grossmont College, Aug 2021 to May 2024; B.S. Computer Science at SDSU, Aug 2024 to May 2026; M.S. Big Data Analytics at SDSU, Aug 2026 to present.">
+                <div class="gantt-legend" aria-hidden="true">
+                    <span><i class="key key--work"></i>Work</span>
+                    <span><i class="key key--edu"></i>Education</span>
                 </div>
-                <div class="project-card reveal">
-                    <div class="project-visual project-visual--type">
-                        <span class="project-visual-figure">96%</span>
-                        <span class="project-visual-caption">Prediction accuracy across 130K passenger records</span>
-                    </div>
-                    <div class="project-body">
-                        <h3 class="project-title">Airline Passenger Satisfaction</h3>
-                        <p class="project-description">
-                            Built and tuned Random Forest and XGBoost classifiers on 130,000 airline
-                            passenger records, achieving 96% accuracy predicting satisfaction with an
-                            automated PDF reporting pipeline for stakeholders.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">XGBoost</span>
-                            <span class="tag">scikit-learn</span>
-                        </div>
-                        <a href="projects/airline-satisfaction.html" class="project-link">
-                            See the project
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        </a>
-                    </div>
+                <div class="gantt-row">
+                    <div class="gantt-label"><b>Billing, IT &amp; Data</b><span>Mollison Adult Day Health Center</span></div>
+                    <div class="gantt-track"><i class="gantt-bar gantt-bar--work" style="--s:11.90%; --w:7.14%"></i></div>
                 </div>
-                <div class="project-card reveal">
-                    <div class="project-visual project-visual--type">
-                        <span class="project-visual-figure">76% → 95%</span>
-                        <span class="project-visual-caption">Fraud recall improved after applying SMOTE</span>
-                    </div>
-                    <div class="project-body">
-                        <h3 class="project-title">Fraud Detection with SMOTE</h3>
-                        <p class="project-description">
-                            Tackled a 384:1 class imbalance in credit card fraud data, improving
-                            fraud detection recall from 76% to 95% by applying SMOTE to a Random
-                            Forest classifier without sacrificing precision.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">SMOTE</span>
-                            <span class="tag">Imbalanced Data</span>
-                        </div>
-                        <a href="projects/fraud-detection.html" class="project-link">
-                            See the project
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        </a>
-                    </div>
+                <div class="gantt-row">
+                    <div class="gantt-label"><b>Barista</b><span>Starbucks</span></div>
+                    <div class="gantt-track"><i class="gantt-bar gantt-bar--work" style="--s:19.05%; --w:19.05%"></i></div>
                 </div>
+                <div class="gantt-row">
+                    <div class="gantt-label"><b>Transportation Analyst</b><span>Cal-Med Transportation</span></div>
+                    <div class="gantt-track"><i class="gantt-bar gantt-bar--work" style="--s:20.24%; --w:20.24%"></i></div>
+                </div>
+                <div class="gantt-row">
+                    <div class="gantt-label"><b>Pharmacy Clerk</b><span>Mollison Pharmacy</span></div>
+                    <div class="gantt-track"><i class="gantt-bar gantt-bar--work gantt-bar--now gantt-bar--ongoing" style="--s:38.10%; --w:59.52%"></i></div>
+                </div>
+                <div class="gantt-row gantt-row--edu">
+                    <div class="gantt-label"><b>Associate's in CS</b><span>Grossmont College</span></div>
+                    <div class="gantt-track"><i class="gantt-bar gantt-bar--edu-past" style="--s:22.62%; --w:39.29%"></i></div>
+                </div>
+                <div class="gantt-row">
+                    <div class="gantt-label"><b>B.S. Computer Science</b><span>SDSU · Magna Cum Laude</span></div>
+                    <div class="gantt-track"><i class="gantt-bar gantt-bar--edu-past" style="--s:65.48%; --w:25.00%"></i></div>
+                </div>
+                <div class="gantt-row">
+                    <div class="gantt-label"><b>M.S. Big Data Analytics</b><span>SDSU · in progress</span></div>
+                    <div class="gantt-track"><i class="gantt-bar gantt-bar--edu gantt-bar--ongoing" style="--s:94.05%; --w:3.57%"></i></div>
+                </div>
+                <div class="gantt-axis" aria-hidden="true"><div class="gantt-label"></div><div class="gantt-years"><span style="--x:0.00%">2020</span><span style="--x:14.29%">2021</span><span style="--x:28.57%">2022</span><span style="--x:42.86%">2023</span><span style="--x:57.14%">2024</span><span style="--x:71.43%">2025</span><span style="--x:85.71%">2026</span></div></div>
             </div>
+
+            <div class="exp-grid">
+                <article class="glass-card job reveal">
+                    <span class="job-date">Sep 2022 – Present</span>
+                    <h3>Pharmacy Clerk</h3>
+                    <p class="job-org">Mollison Pharmacy</p>
+                    <ul class="job-points">
+                        <li><b>300–400</b> prescriptions processed daily in DigitalRX</li>
+                        <li>Submit and track prior authorization requests</li>
+                        <li>Coordinate with physicians on insurance rejections</li>
+                    </ul>
+                </article>
+                <article class="glass-card job reveal" style="--d: 80ms">
+                    <span class="job-date">Jun 2021 – Nov 2022</span>
+                    <h3>Transportation Analyst</h3>
+                    <p class="job-org">Cal-Med Transportation</p>
+                    <ul class="job-points">
+                        <li><b>50+</b> daily trips coordinated across 7 drivers</li>
+                        <li>Maintained an Excel tracking system for patient info</li>
+                        <li>Built and managed daily scheduling</li>
+                    </ul>
+                </article>
+                <article class="glass-card job reveal" style="--d: 160ms">
+                    <span class="job-date">May 2021 – Sep 2022</span>
+                    <h3>Barista</h3>
+                    <p class="job-org">Starbucks</p>
+                    <ul class="job-points">
+                        <li>Lowered drive-thru times to the <b>store's lowest ever</b></li>
+                        <li>Took orders, crafted drinks and ran the register</li>
+                        <li>Kept service fast and friendly during peak rushes</li>
+                    </ul>
+                </article>
+                <article class="glass-card job reveal" style="--d: 240ms">
+                    <span class="job-date">Nov 2020 – May 2021</span>
+                    <h3>Billing, IT &amp; Data</h3>
+                    <p class="job-org">Mollison Adult Day Health Center</p>
+                    <ul class="job-points">
+                        <li>Handled insurance billing</li>
+                        <li>Provided day-to-day IT support</li>
+                        <li>Organized all company-generated data in <b>Excel</b></li>
+                    </ul>
+                </article>
+            </div>
+
+            <aside class="glass-card toolkit toolkit--wide reveal">
+                <div>
+                    <h3>Toolkit</h3>
+                    <div class="skills-grid">
+                        <span class="skill">Python</span><span class="skill">SQL</span><span class="skill">R</span>
+                        <span class="skill">Tableau</span><span class="skill">Excel</span><span class="skill">C++</span>
+                        <span class="skill">Git/GitHub</span><span class="skill">Flask</span>
+                        <span class="skill">TensorFlow</span><span class="skill">Keras</span>
+                    </div>
+                </div>
+                <a href="documents/resume.pdf" class="btn btn-primary btn-download" download>
+                    Download resume
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 3v8M4.5 7.5 8 11l3.5-3.5M3 13h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+            </aside>
         </div>
     </section>
 
-    <section id="goals" class="section goals">
+    <!-- 04 · Next -->
+    <section id="goals" class="section">
         <div class="container">
-            <h2 class="section-title reveal">Goals & aspirations</h2>
-            <div class="goals-content">
-                <div class="goal-card reveal">
-                    <div class="goal-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3 2 8l10 5 10-5-10-5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <header class="section-head reveal">
+                <span class="eyebrow"><b>04</b> Next</span>
+                <h2 class="section-title">What I'm working toward.</h2>
+            </header>
+            <div class="next-grid">
+                <article class="glass-card next-card reveal">
+                    <div class="next-top">
+                        <span class="next-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3 2 8l10 5 10-5-10-5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                        <span class="pill pill--sky">Now</span>
                     </div>
                     <h3>Graduate education</h3>
-                    <p>
-                        Currently pursuing my M.S. in Big Data Analytics at SDSU, deepening my expertise
-                        in advanced analytics, machine learning, and data engineering.
-                    </p>
-                </div>
-                <div class="goal-card reveal">
-                    <div class="goal-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3" y="7" width="18" height="13" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" stroke="currentColor" stroke-width="1.6"/></svg>
+                    <p>Pursuing my M.S. in Big Data Analytics at SDSU, going deeper on advanced analytics, machine learning, and data engineering.</p>
+                </article>
+                <article class="glass-card next-card reveal" style="--d: 100ms">
+                    <div class="next-top">
+                        <span class="next-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="7" width="18" height="13" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" stroke="currentColor" stroke-width="1.6"/></svg></span>
+                        <span class="pill pill--sky">Next</span>
                     </div>
-                    <h3>Data analyst career</h3>
-                    <p>
-                        Looking for a full-time data analyst role where I can turn messy data into
-                        decisions people actually act on.
-                    </p>
-                </div>
-                <div class="goal-card reveal">
-                    <div class="goal-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 19V9M11 19V5M18 19v-7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+                    <h3>A data analyst role</h3>
+                    <p>Looking for a full-time analyst role where I can turn messy data into decisions people actually act on.</p>
+                </article>
+                <article class="glass-card next-card reveal" style="--d: 200ms">
+                    <div class="next-top">
+                        <span class="next-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 19V9M11 19V5M18 19v-7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+                        <span class="pill pill--sky">Always</span>
                     </div>
-                    <h3>Continuous learning</h3>
-                    <p>
-                        Always adding to my toolkit — new visualization platforms, cloud-based analytics,
-                        whatever gets me to better answers faster.
-                    </p>
-                </div>
+                    <h3>Learning</h3>
+                    <p>Adding to my toolkit: new visualization platforms, cloud analytics, whatever gets me to better answers faster.</p>
+                </article>
             </div>
         </div>
     </section>
 
-    <section id="resume" class="section resume">
-        <div class="container">
-            <h2 class="section-title reveal">Resume</h2>
-            <div class="resume-content reveal">
-                <p class="resume-intro">
-                    Download my full resume to see my complete work history, technical skills,
-                    and academic achievements.
-                </p>
-                <div class="resume-downloads">
-                    <a href="documents/resume.pdf" class="btn btn-primary btn-download" download>Download resume (PDF)</a>
-                </div>
-            </div>
-
-            <div class="resume-highlights">
-                <div class="resume-section reveal">
-                    <h3>Technical skills</h3>
-                    <div class="skills-grid">
-                        <span class="skill">Python</span>
-                        <span class="skill">C++</span>
-                        <span class="skill">SQL</span>
-                        <span class="skill">R</span>
-                        <span class="skill">Tableau</span>
-                        <span class="skill">Git/GitHub</span>
-                        <span class="skill">Flask</span>
-                        <span class="skill">TensorFlow</span>
-                        <span class="skill">Keras</span>
-                        <span class="skill">Excel</span>
-                    </div>
-                </div>
-
-                <div class="resume-section reveal">
-                    <h3>Experience</h3>
-                    <div class="experience-item">
-                        <div class="experience-header">
-                            <h4>Pharmacy Clerk</h4>
-                            <span class="experience-date">Sep 2022 – Present</span>
-                        </div>
-                        <p class="experience-company">Mollison Pharmacy</p>
-                        <p class="experience-description">Process 300–400 prescriptions daily using DigitalRX system. Submit and track prior authorization requests, coordinating with physicians on insurance rejections.</p>
-                    </div>
-                    <div class="experience-item">
-                        <div class="experience-header">
-                            <h4>Transportation Analyst</h4>
-                            <span class="experience-date">Jun 2021 – Nov 2022</span>
-                        </div>
-                        <p class="experience-company">Cal-Med Transportation</p>
-                        <p class="experience-description">Coordinated 50+ daily transportation trips across 7 drivers. Maintained Excel-based tracking system for patient information and scheduling.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
+    <!-- 05 · Contact -->
     <section id="contact" class="section contact">
         <div class="container">
-            <h2 class="section-title reveal">Let's connect</h2>
-            <p class="contact-intro reveal">
-                I'm always open to discussing new opportunities, collaborations, or just
-                chatting about data. Feel free to reach out.
-            </p>
-            <div class="contact-methods reveal">
-                <a href="/cdn-cgi/l/email-protection#f99398939698909d9c97b9909a95968c9dd79a9694" class="contact-card">
-                    <span class="contact-icon">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    </span>
-                    <span class="contact-label">Email</span>
-                </a>
-                <a href="https://github.com/aidenjajo" class="contact-card" target="_blank">
-                    <span class="contact-icon">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2a10 10 0 0 0-3.16 19.5c.5.1.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.99 1.03-2.69-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.9-1.3 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.6 1.03 2.69 0 3.85-2.34 4.7-4.57 4.95.36.31.68.92.68 1.85v2.75c0 .26.18.58.69.48A10 10 0 0 0 12 2Z" fill="currentColor"/></svg>
-                    </span>
-                    <span class="contact-label">GitHub</span>
-                </a>
-                <a href="https://www.linkedin.com/in/aidenjajo" class="contact-card" target="_blank">
-                    <span class="contact-icon">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="M7.5 10.5v6M7.5 7.51v.01M11.5 16.5v-3.5c0-1.2.8-2 2-2s2 .8 2 2v3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    </span>
-                    <span class="contact-label">LinkedIn</span>
-                </a>
+            <div class="contact-panel reveal">
+                <span class="eyebrow"><b>05</b> Contact</span>
+                <h2 class="contact-title">Let's connect.</h2>
+                <p class="contact-intro">I'm always open to new opportunities, collaborations, or just talking about data.</p>
+                <div class="contact-actions">
+                    <a href="mailto:jajoaiden@icloud.com" class="btn btn-primary"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Email me</a>
+                    <a href="https://www.linkedin.com/in/aidenjajo" class="btn btn-glass" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="M7.5 10.5v6M7.5 7.51v.01M11.5 16.5v-3.5c0-1.2.8-2 2-2s2 .8 2 2v3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> LinkedIn</a>
+                    <a href="https://github.com/aidenjajo" class="btn btn-glass" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.5c.5.1.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.99 1.03-2.69-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.9-1.3 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.6 1.03 2.69 0 3.85-2.34 4.7-4.57 4.95.36.31.68.92.68 1.85v2.75c0 .26.18.58.69.48A10 10 0 0 0 12 2Z" fill="currentColor"/></svg> GitHub</a>
+                </div>
+                <p class="contact-email">jajoaiden@icloud.com</p>
             </div>
         </div>
     </section>
 
+    </main>
+
     <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 Aiden B. Jajo. Built with purpose.</p>
+        <div class="container footer-inner">
+            <span>&copy; 2026 Aiden B. Jajo</span>
+            <nav class="footer-links" aria-label="Footer">
+                <a href="#about">About</a><a href="#projects">Work</a><a href="#resume">Journey</a><a href="#top">Back to top ↑</a>
+            </nav>
         </div>
     </footer>
 
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/hero-studs.js"></script>
 </body>
 </html>
