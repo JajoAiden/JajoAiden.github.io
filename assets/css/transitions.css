@@ -1,0 +1,73 @@
+/* =========================================================
+   Page transition inspired by the iPhone Duo unfold.
+
+   When you move between pages on this site, the new page
+   unfolds in from left to right: it starts blurred, dim and
+   tilted on a hinge at its left edge, then straightens,
+   brightens and comes into focus. The old page blurs, dims
+   and folds away behind it.
+
+   Uses the browser's built-in cross-page View Transitions.
+   Chrome, Edge and Safari animate; other browsers simply load
+   the page. Both pages must include this file.
+   ========================================================= */
+
+@view-transition { navigation: auto; }
+
+/* how far the soft leading edge of the new page has travelled */
+@property --unfold {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 0%;
+}
+
+::view-transition-group(root) {
+    animation-duration: 0.85s;
+}
+
+::view-transition-new(root) {
+    transform-origin: left center;
+    /* a soft, blurred leading edge rather than a hard wipe */
+    -webkit-mask-image: linear-gradient(90deg, #000 calc(var(--unfold) - 14%), transparent var(--unfold));
+            mask-image: linear-gradient(90deg, #000 calc(var(--unfold) - 14%), transparent var(--unfold));
+    animation: duo-unfold 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+::view-transition-old(root) {
+    transform-origin: right center;
+    animation: duo-fold-away 0.85s cubic-bezier(0.55, 0, 0.35, 1) both;
+}
+
+@keyframes duo-unfold {
+    0% {
+        --unfold: 0%;
+        filter: blur(26px) brightness(0.5) saturate(0.8);
+        transform: perspective(1800px) rotateY(16deg) scale(0.96);
+    }
+    55% {
+        filter: blur(9px) brightness(0.85) saturate(0.95);
+    }
+    100% {
+        --unfold: 114%;
+        filter: blur(0) brightness(1) saturate(1);
+        transform: none;
+    }
+}
+
+@keyframes duo-fold-away {
+    0% {
+        filter: none;
+        transform: none;
+        opacity: 1;
+    }
+    100% {
+        filter: blur(22px) brightness(0.35);
+        transform: perspective(1800px) rotateY(-10deg) translateX(6%) scale(0.94);
+        opacity: 0.5;
+    }
+}
+
+/* visitors who turn off motion get an instant switch */
+@media (prefers-reduced-motion: reduce) {
+    @view-transition { navigation: none; }
+}
